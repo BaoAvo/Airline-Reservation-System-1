@@ -108,12 +108,14 @@ public class CustomerController {
             double seatTax = 0;
             double serviceTax = 0.1;
             if (flightSearch.getSeatClass().equals("FIRST CLASS")) {
-                seatTax = 0.015;
+                seatTax = 0.05;
             } else if (flightSearch.getSeatClass().equals("BUSINESS CLASS")) {
                 seatTax = 0.03;
             } else if (flightSearch.getSeatClass().equals("ECONOMY CLASS")) {
-                seatTax = 0.05;
+                seatTax = 0.015;
             }
+
+
             model.addAttribute("flights", flights);
             model.addAttribute("flightSearch", flightSearch);
             model.addAttribute("tax", seatTax);
@@ -136,6 +138,7 @@ public class CustomerController {
     public String cart(Model model){
         List<Ticket> tickets = ticketRepository.findAll();
         model.addAttribute("tickets",tickets);
+        System.out.println(tickets);
         return "user/cart";
     }
 
@@ -194,11 +197,11 @@ public class CustomerController {
 
         var basePrice = flightSeatPrice.getPrice();
         if(flightSeatPrice.getSeat().getType().equals("FIRST CLASS")){
-            tax = 0.015;
+            tax = 0.05;
         }else if(flightSeatPrice.getSeat().getType().equals("BUSINESS CLASS")){
             tax = 0.03;
         }else if(flightSeatPrice.getSeat().getType().equals("ECONOMY CLASS")){
-            tax = 0.05;
+            tax = 0.015;
         }
         double total = basePrice + basePrice*tax + basePrice*transportTax;
         Ticket ticket = new Ticket();

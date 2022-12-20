@@ -27,7 +27,7 @@ public class PaypalService {
         Amount amountFlightBooked = new Amount();
         amountFlightBooked.setCurrency(internationalCurrency);
         totalPriceFlightBooked = new BigDecimal(totalPriceFlightBooked).setScale(2, RoundingMode.HALF_UP).doubleValue();
-        amountFlightBooked.setTotal(String.format("%.0f",totalPriceFlightBooked));
+        amountFlightBooked.setTotal(String.format("%.2f",totalPriceFlightBooked));
 
 
 //        transaction flight booked

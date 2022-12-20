@@ -66,18 +66,21 @@
                         <h6 class="my-0">Tax</h6>
                         <small class="text-muted">Travel services</small>
                     </div>
-                    <span class="text-muted" th:text="${#numbers.formatDecimal(tax*100, 1, 'COMMA',2, 'POINT')} + '%'"></span>
+<!--                    <span class="text-muted" th:text="${#numbers.formatDecimal(tax*100, 1, 'COMMA',2, 'POINT')} + '%'"></span>-->
+                    <span class="text-muted" th:text="${tax*100} +'%'"></span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0">Transportation Tax</h6>
                         <small class="text-muted">Transportation services</small>
                     </div>
-                    <span class="text-muted" th:text="${#numbers.formatDecimal(transportTax*100, 1, 'COMMA',2, 'POINT')} + '%'"></span>
+<!--                    <span class="text-muted" th:text="${#numbers.formatDecimal(transportTax*100, 1, 'COMMA',2, 'POINT')} + '%'"></span>-->
+                    <span class="text-muted" th:text="${transportTax * 100} + '%'"></span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Total (USD)</span>
-                    <strong th:text="${#numbers.formatDecimal(total, 1, 'COMMA',2, 'POINT')}"></strong>
+<!--                    <strong th:text="${#numbers.formatDecimal(total, 1, 'COMMA',2, 'POINT')}"></strong>-->
+                    <strong th:text="${total}"></strong>
                 </li>
             </ul>
         </div>
@@ -382,7 +385,8 @@
                 <div class="col-md-12 mb-3">
 
                     <label >Payment</label>
-                    <input type="text" class="form-control" name="price" th:value="${#numbers.formatDecimal(total, 1, 'POINT',0, 'POINT')}" readonly>
+<!--                    <input type="text" class="form-control" name="price" th:value="${#numbers.formatDecimal(total, 1, 'POINT',0, 'POINT')}" readonly>-->
+                    <input type="text" class="form-control" name="price" th:value="${total}" readonly>
 
                 </div>
                 <hr class="mb-4">
