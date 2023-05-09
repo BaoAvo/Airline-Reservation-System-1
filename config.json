@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "build.mvn", "use": "@vercel/mvn" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "http://localhost:8080/$1" },
+    { "src": "/(.*)", "dest": "http://localhost:3000/$1" }
+  ]
+}
